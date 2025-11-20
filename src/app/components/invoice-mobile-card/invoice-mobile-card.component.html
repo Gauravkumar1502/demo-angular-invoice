@@ -1,0 +1,24 @@
+<div class="invoice-card">
+
+  <div class="top-row">
+    <div class="invoice-number">#{{ invoice().invoiceNumber }}</div>
+    <mat-chip [ngClass]="invoice().status.toLowerCase()" class="status-chip">
+      {{ invoice().status }}
+    </mat-chip>
+  </div>
+
+  <div class="customer">{{ invoice().customer }}</div>
+
+  <div class="amount">₹{{ invoice().amount }}</div>
+
+  <div class="due">
+    Due: {{ invoice().dueDate | date:'mediumDate' }}
+  </div>
+
+  <div class="actions">
+    <span class="view-link">Edit</span>
+    <span class="view-link">View</span>
+    <span class="view-link">Delete</span>
+  </div>
+
+</div>
