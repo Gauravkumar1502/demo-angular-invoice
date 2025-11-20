@@ -1,73 +1,71 @@
 @if (data().length > 0) {
   @if (isMobile()) {
-    @for (invoice of data(); track invoice) {
-      <div class="mobile-card-list">
-        @for (item of data(); track item.id) {
-          <app-invoice-mobile-card [invoice]="item"></app-invoice-mobile-card>
-        }
-      </div>
-    }
+    <div class="mobile-card-list">
+      @for (item of data(); track item.id) {
+        <app-invoice-mobile-card [invoice]="item"></app-invoice-mobile-card>
+      }
+    </div>
   } @else {
     <div class="table-container">
       <table mat-table [dataSource]="dataSource">
 
-      <!-- Invoice Number -->
-      <ng-container matColumnDef="invoiceNumber">
-        <th mat-header-cell *matHeaderCellDef> Invoice # </th>
-        <td mat-cell *matCellDef="let row"> {{ row.invoiceNumber }} </td>
-      </ng-container>
+        <!-- Invoice Number -->
+        <ng-container matColumnDef="invoiceNumber">
+          <th mat-header-cell *matHeaderCellDef> Invoice #</th>
+          <td mat-cell *matCellDef="let row"> {{ row.invoiceNumber }}</td>
+        </ng-container>
 
-      <!-- Customer -->
-      <ng-container matColumnDef="customer">
-        <th mat-header-cell *matHeaderCellDef> Customer </th>
-        <td mat-cell *matCellDef="let row"> {{ row.customer }} </td>
-      </ng-container>
+        <!-- Customer -->
+        <ng-container matColumnDef="customer">
+          <th mat-header-cell *matHeaderCellDef> Customer</th>
+          <td mat-cell *matCellDef="let row"> {{ row.customer }}</td>
+        </ng-container>
 
-      <!-- Amount -->
-      <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef> Amount </th>
-        <td mat-cell *matCellDef="let row"> ₹{{ row.amount }} </td>
-      </ng-container>
+        <!-- Amount -->
+        <ng-container matColumnDef="amount">
+          <th mat-header-cell *matHeaderCellDef> Amount</th>
+          <td mat-cell *matCellDef="let row"> ₹{{ row.amount }}</td>
+        </ng-container>
 
-      <!-- Status -->
-      <!-- Status -->
-      <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let row">
-          <mat-chip
-            [ngClass]="row.status.toLowerCase()"
-            class="status-chip">
-            {{ row.status }}
-          </mat-chip>
-        </td>
-      </ng-container>
+        <!-- Status -->
+        <!-- Status -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let row">
+            <mat-chip
+              [ngClass]="row.status.toLowerCase()"
+              class="status-chip">
+              {{ row.status }}
+            </mat-chip>
+          </td>
+        </ng-container>
 
-      <!-- Due Date -->
-      <ng-container matColumnDef="dueDate">
-        <th mat-header-cell *matHeaderCellDef> Due Date </th>
-        <td mat-cell *matCellDef="let row">
-          {{ row.dueDate | date:'mediumDate' }}
-        </td>
-      </ng-container>
+        <!-- Due Date -->
+        <ng-container matColumnDef="dueDate">
+          <th mat-header-cell *matHeaderCellDef> Due Date</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.dueDate | date:'mediumDate' }}
+          </td>
+        </ng-container>
 
-      <!-- Actions -->
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let row">
-          <div class="action-links">
-            <span class="view-link">Edit</span>
-            <span class="view-link">View</span>
-            <span class="view-link">Delete</span>
-          </div>
-        </td>
-      </ng-container>
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="action-links">
+              <span class="view-link">Edit</span>
+              <span class="view-link">View</span>
+              <span class="view-link">Delete</span>
+            </div>
+          </td>
+        </ng-container>
 
 
-      <!-- Table rows -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- Table rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-    </table>
+      </table>
     </div>
   }
 } @else {
