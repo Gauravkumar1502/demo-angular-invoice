@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {InvoicesPageComponent} from './pages/invoices-page/invoices-page.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    InvoicesPageComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

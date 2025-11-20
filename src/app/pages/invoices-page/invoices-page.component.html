@@ -1,0 +1,5 @@
+<section>
+  <app-invoices-header [title]="title" [subtitle]="subtitle"></app-invoices-header>
+  <app-invoices-filter-bar (filtersChanged)="onFiltersChanged($event)">></app-invoices-filter-bar>
+  <app-invoices-table [data]="filteredInvoices()"></app-invoices-table>
+</section>
